@@ -18,75 +18,74 @@ import jakarta.persistence.Table;
 @Table(name = "FUNCIONARIOS")
 public class Funcionario extends AbstractEntity<Long> {
 
-    @Column(nullable = false, unique = true)
-    private String nome;
+	@Column(nullable = false, unique = true)
+	private String nome;
 
-    @NumberFormat(style = NumberFormat.Style.CURRENCY, pattern = "#,##0.00")
-    @Column(nullable = false, columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
-    private BigDecimal salario;
+	@NumberFormat(style = NumberFormat.Style.CURRENCY, pattern = "#,##0.00")
+	@Column(nullable = false, columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
+	private BigDecimal salario;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Column(name = "data_entrada", nullable = false, columnDefinition = "DATE")
-    private LocalDate dataEntrada;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "data_entrada", nullable = false, columnDefinition = "DATE")
+	private LocalDate dataEntrada;
 
-    @Column(name = "data_saida", columnDefinition = "DATE")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dataSaida;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "data_saida", columnDefinition = "DATE")
+	private LocalDate dataSaida;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "endereco_id_fk")
-    private Endereco endereco;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "endereco_id_fk")
+	private Endereco endereco;
 
-    @ManyToOne
-    @JoinColumn(name = "cargo_id_fk")
-    private Cargo cargo;
+	@ManyToOne
+	@JoinColumn(name = "cargo_id_fk")
+	private Cargo cargo;
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public BigDecimal getSalario() {
-        return salario;
-    }
+	public BigDecimal getSalario() {
+		return salario;
+	}
 
-    public void setSalario(BigDecimal salario) {
-        this.salario = salario;
-    }
+	public void setSalario(BigDecimal salario) {
+		this.salario = salario;
+	}
 
-    public LocalDate getDataEntrada() {
-        return dataEntrada;
-    }
+	public LocalDate getDataEntrada() {
+		return dataEntrada;
+	}
 
-    public void setDataEntrada(LocalDate dataEntrada) {
-        this.dataEntrada = dataEntrada;
-    }
+	public void setDataEntrada(LocalDate dataEntrada) {
+		this.dataEntrada = dataEntrada;
+	}
 
-    public LocalDate getDataSaida() {
-        return dataSaida;
-    }
+	public LocalDate getDataSaida() {
+		return dataSaida;
+	}
 
-    public void setDataSaida(LocalDate dataSaida) {
-        this.dataSaida = dataSaida;
-    }
+	public void setDataSaida(LocalDate dataSaida) {
+		this.dataSaida = dataSaida;
+	}
 
-    public Endereco getEndereco() {
-        return endereco;
-    }
+	public Endereco getEndereco() {
+		return endereco;
+	}
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 
-    public Cargo getCargo() {
-        return cargo;
-    }
+	public Cargo getCargo() {
+		return cargo;
+	}
 
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
-    }
-
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
+	}
 }

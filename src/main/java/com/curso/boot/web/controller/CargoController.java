@@ -8,14 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/cargos")
 public class CargoController {
 
-	@GetMapping("/cadastrar")
-	public String cadastrar() {
-		return "cargo/cadastro";
-	}
+    @GetMapping("/cadastrar")-
+    public String cadastrar() {
+        return "cargo/cadastro";
+    }
 
-	@GetMapping("/listar")
-	public String listar() {
-		return "cargo/lista";
-	}
-
+    @GetMapping("/listar")
+    public String listar() {
+        return "cargo/lista";
+    }
 }
